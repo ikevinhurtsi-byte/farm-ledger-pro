@@ -3,7 +3,7 @@ import { getDB, generateId, FarmSettings } from '@/lib/db';
 const DEFAULT_SETTINGS: Omit<FarmSettings, 'updatedAt'> = {
   id: 'main',
   farmName: 'My Farm',
-  currency: 'KES',
+  currency: 'UGX',
   fiscalYearStart: '01-01',
 };
 
