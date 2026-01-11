@@ -222,7 +222,14 @@ export function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
-export function formatCurrency(amount: number, currency = 'KES'): string {
+export function formatCurrency(amount: number, currency = 'UGX'): string {
+  // UGX doesn't use decimals, format with commas for readability
+  if (currency === 'UGX') {
+    return `UGX ${new Intl.NumberFormat('en-UG', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount)}`;
+  }
   return new Intl.NumberFormat('en-KE', {
     style: 'currency',
     currency,
